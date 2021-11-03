@@ -1,6 +1,9 @@
 {
     "name": "portfolio-project",
     "description": "Build scripts for Heroku",
+    "engines": {
+      "node": "16.2.x"
+    },
     "scripts": {
       "build": "npm install --prefix portfolio-react && npm run build --prefix portfolio-react",
       "clean": "rm -rf public",
