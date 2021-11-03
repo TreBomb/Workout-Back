@@ -1,0 +1,270 @@
+/*--- GENERAL ---*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #ebe1d7;
+  background-color: #47413b;
+  margin: 0;
+}
+
+a {
+  color: #ececec;
+  text-decoration: none;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+
+.spacer {
+  margin-top: 8vh;
+}
+
+.error {
+  font-size: 4em;
+}
+
+/*--- BUTTONS ---*/
+.btn {
+  border: 3px solid #47413b;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  border: 3px solid #e67a00;
+  color: #e67a00;
+  border-radius: 6px;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #00000000;
+  color: #47413b;
+  width: 8em;
+  height: 2em;
+  font-size: 1.5em;
+}
+
+.btn-primary:hover {
+  margin-top: -10px;
+  background-color: #ffffffa9;
+}
+
+.btn-secondary {
+  background-color: #00000000;
+  border: 3px solid #e67a00;
+  color: #e67a00;
+  width: 5em;
+  height: 2em;
+  font-size: 1.2em;
+}
+
+.btn-secondary:hover {
+  background-color: #ececec;
+}
+
+.btn-tertiary {
+  background-color: #00000000;
+  border: 3px solid #e67a00;
+  color: #e67a00;
+  width: 6em;
+  height: 2em;
+  font-size: .9em;
+}
+
+.btn-tertiary:hover {
+  background-color: #ececec;
+}
+
+/*--- CARDS ---*/
+.news-cards {
+  margin: auto;
+  padding: 20px;
+  left: 0;
+  text-align: center;
+}
+
+.grid-wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: #ebe1d7;
+  border: 3px solid #ebe1d7;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: #f3efea;
+  border: 3px solid #e67a00;
+  border-radius: 6px;
+  margin-top: -2px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-img {
+  height: 15em;
+  width: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.card-base {
+  color: #47413b;
+  width: 100%;
+  height: 8em;
+}
+
+.card-detail {
+  color: #4e4b47;
+  margin-bottom: 0;
+  margin-left: 5px;
+  font-size: .5em;
+}
+
+.card-header {
+  color: #e67a00;
+  margin: 0;
+  margin-left: 5px;
+  font-size: 1.8em;
+}
+
+.card-info {
+  color: #47413b;
+  margin-top: 0;
+  margin-left: 5px;
+  font-size: .8em;
+}
+
+/*--- FORMS ---*/
+.accounts-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ebe1d7;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.input {
+  width: 20em;
+  height: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 3px solid #ebe1d7;
+  border-radius: 6px;
+  padding-left: 10px;
+  font-size: 1em;
+}
+
+/*--- NAV ---*/
+.nav-bar {
+  background-color: #e67a00;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.nav-bar-list {
+  display: flex;
+  list-style-type: none;
+  font-size: 1em;
+  margin: 0;
+  padding-left: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-bar-list {
+    font-size: 0.7em;
+    padding: 0;
+  }
+}
+
+.nav-bar-list li {
+  padding: 20px;
+  text-align: center;
+}
+
+.nav-bar-logo {
+  padding: 3px;
+  text-align: center;
+  width: 60px;
+  height:50px;
+}
+
+.push-left {
+  margin-left: auto;
+}
+
+/*--- COVER ---*/
+.cover {
+  background-color: #ebe1d7;
+  color: #47413b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*--- HOME ---*/
+.home-content {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
+
+.title {
+  margin-top: 80px;
+}
+
+.message {
+  margin-top: 20px;
+}
+
+/*--- FOOTER ---*/
+.footer {
+  background-color: #ebe1d7;
+  color: #47413b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
