@@ -29,6 +29,48 @@ a {
   font-size: 4em;
 }
 
+/*--- TEXT ---*/
+.txt {
+  text-align: center;
+}
+
+.txt-cover {
+  font-size: 3em;
+  color: #47413b;
+}
+
+.txt-form {
+  font-size: 1.5em;
+  margin: 30px;
+  color: #ebe1d7;
+}
+
+.txt-footer {
+  font-size: 1em;
+  margin: 10px;
+  color: #ebe1d7;
+}
+
+.txt-logo {
+  text-align: left;
+  font-weight: bolder;
+  font-size: 1em;
+  color: #47413b;
+  margin: 0;
+  margin-top: -0.6em;
+  margin-left: 0.2em;
+}
+
+.txt-nav {
+  font-size: 1.2em;
+  color: #ebe1d7;
+  margin-top: -0.3em;
+}
+
+.txt-space {
+  margin-top: 0px;
+}
+
 /*--- BUTTONS ---*/
 .btn {
   border: 3px solid #47413b;
@@ -202,13 +244,6 @@ a {
   padding-left: 0px;
 }
 
-@media only screen and (max-width: 600px) {
-  .nav-bar-list {
-    font-size: 0.7em;
-    padding: 0;
-  }
-}
-
 .nav-bar-list li {
   padding: 20px;
   text-align: center;
@@ -225,18 +260,6 @@ a {
   margin-left: auto;
 }
 
-/*--- COVER ---*/
-.cover {
-  background-color: #ebe1d7;
-  color: #47413b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-}
-
 /*--- HOME ---*/
 .home-content {
   height: 100vh;
@@ -246,12 +269,15 @@ a {
   top: 0;
 }
 
-.title {
-  margin-top: 80px;
-}
-
-.message {
-  margin-top: 20px;
+.cover {
+  background-color: #ebe1d7;
+  color: #47413b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 /*--- FOOTER ---*/
@@ -267,4 +293,16 @@ a {
   bottom: 0;
   left: 0;
   z-index: 1;
+}
+
+/*--- MOBILE ---*/
+@media only screen and (max-width: 600px) {
+  .nav-bar-list {
+    font-size: .85em;
+    padding: 0;
+  }
+
+  .txt-space {
+    margin-top: 0.4em;
+  }
 }
