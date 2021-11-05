@@ -6,14 +6,34 @@ import Home from './components/Home';
 import News from "./components/News";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import UserInfo from "./components/UserInfo";
 import FourZeroFour from "./components/FourZeroFour";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [isLoggedin, setIsLoggedin] = useState(false);
+
+  useEffect(() => {
+    fetch ("/account")
+    .then(res => res.json())
+    .then(data => {
+      if (data.name) {
+        console.log(data);
+        setUser(data);
+        setIsLoggedin(true);
+      } else {
+        setUser(null);
+        setIsLoggedin(false);
+      }
+    })
+    .catch(err => console.log(err));
+  }, []);
+
   return (
     <Router>
       <Switch>
         <div className="App">
-            <NavBar />
+            <NavBar user={user} isLoggedin={isLoggedin} />
             <Route exact path="/">
               <Home />
               <News />
@@ -22,10 +42,13 @@ function App() {
               <News />
             </Route>
             <Route exact path="/login">
-              <Login />
+              <Login setUser={setUser} setIsLoggedin={setIsLoggedin} />
             </Route>
             <Route exact path="/signup">
-              <Signup />
+              <Signup setUser={setUser} setIsLoggedin={setIsLoggedin} />
+            </Route>
+            <Route exact path="/user-info">
+              <UserInfo user={user} setUser={setUser} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />
             </Route>
             <Route exact path="/404">
               <FourZeroFour />

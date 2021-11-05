@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   #Custom routes
   get "/hello", to: "application#hello_world"
+  get '/account', to: 'users#show'
+  post '/login', to: 'sessions#create'
+  post '/signup', to: 'users#create'
+  delete '/logout', to: 'sessions#destroy'
 end

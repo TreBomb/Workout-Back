@@ -71,6 +71,10 @@ a {
   margin-top: 0px;
 }
 
+.txt-underline:hover {
+  border-bottom: 2px solid #ebe1d7;
+}
+
 /*--- BUTTONS ---*/
 .btn {
   border: 3px solid #47413b;
@@ -223,6 +227,16 @@ a {
   border-radius: 6px;
   padding-left: 10px;
   font-size: 1em;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 /*--- NAV ---*/
