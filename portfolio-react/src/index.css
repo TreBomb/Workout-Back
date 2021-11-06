@@ -136,10 +136,26 @@ a {
   text-align: center;
 }
 
-.grid-wrapper {
+.goal-cards {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.news-grid-wrapper {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  align-content: space-between;
+  justify-content: space-around;
+}
+
+.goal-grid-wrapper {
+  display: grid;
+  gap: 3%;
+  grid-template-columns: repeat(auto-fill, minmax(250px, .5fr));
+  align-content: space-between;
+  justify-content: space-around;
 }
 
 .card {
@@ -152,6 +168,8 @@ a {
   width: 100%;
   height: 100%;
   margin: 0;
+  align-self: center;
+  justify-self: center;
 }
 
 .card:hover {
@@ -194,7 +212,18 @@ a {
   color: #47413b;
   margin-top: 0;
   margin-left: 5px;
-  font-size: .8em;
+  font-size: 1em;
+}
+
+.card-div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 3px solid #ebe1d7;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 /*--- FORMS ---*/

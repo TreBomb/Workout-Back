@@ -7,7 +7,7 @@ function News() {
         <div className="spacer" />
         <h1>News</h1>
         <hr/>
-        <div className="grid-wrapper">
+        <div className="news-grid-wrapper">
             <NewsCards />
             <NewsCards />
             <NewsCards />

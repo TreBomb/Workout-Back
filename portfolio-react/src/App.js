@@ -7,6 +7,8 @@ import News from "./components/News";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import UserInfo from "./components/UserInfo";
+import SetGoal from "./components/SetGoal";
+import Dashboard from "./components/Dashboard";
 import FourZeroFour from "./components/FourZeroFour";
 
 function App() {
@@ -49,6 +51,12 @@ function App() {
             </Route>
             <Route exact path="/user-info">
               <UserInfo user={user} setUser={setUser} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />
+            </Route>
+            <Route exact path="/set-goal">
+              <SetGoal user={user} setUser={setUser} />
+            </Route>
+            <Route exact path="/dashboard">
+              <Dashboard user={user} setUser={setUser} />
             </Route>
             <Route exact path="/404">
               <FourZeroFour />

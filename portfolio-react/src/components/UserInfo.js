@@ -43,12 +43,11 @@ function UserInfo({ user, setUser, isLoggedin, setIsLoggedin }) {
 
     return (
     <div className="user-info">
-            <div className="spacer">
-            </div>
-            <h1 className="txt txt-form">{msgs.nameData}</h1>
-            <h1 className="txt txt-form">{msgs.emailData}</h1>
-            <h1 className="txt txt-form">{msgs.goalData}</h1>
-            <button className="btn btn-secondary" onClick={logoutFunction}>Logout</button>
+        <div className="spacer" />
+        <h1 className="txt txt-form">{msgs.nameData}</h1>
+        <h1 className="txt txt-form">{msgs.emailData}</h1>
+        <h1 className="txt txt-form">{msgs.goalData}</h1>
+        <button className="btn btn-secondary" onClick={logoutFunction}>Logout</button>
     </div>
     );
 }

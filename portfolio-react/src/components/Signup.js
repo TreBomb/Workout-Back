@@ -26,7 +26,7 @@ function Signup({ setUser, setIsLoggedin }) {
       console.log(data);
       setUser(data);
       setIsLoggedin(true);
-      history.push("/");
+      history.push("/set-goal");
     });
   }
 
