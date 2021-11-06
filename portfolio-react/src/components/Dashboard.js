@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 function Dashboard({ user, setUser }) {
 
     useEffect(() => {
-        fetch("/exercises")
+        fetch(`/users/${user.id}/workouts`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
         })
-    } ,[]);
+    } ,[user]);
 
     return (
     <div className="news-cards">

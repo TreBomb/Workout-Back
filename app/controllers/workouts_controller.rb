@@ -1,6 +1,10 @@
 class WorkoutsController < ApplicationController
     def index
-        @workouts = Workout.all
+        if params[:user_id]
+            @workouts = Workout.where(user_id: params[:user_id])
+        else
+            @workouts = Workout.all
+        end
 
         render json: @workouts
     end
