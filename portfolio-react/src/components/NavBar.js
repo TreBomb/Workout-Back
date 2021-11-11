@@ -4,15 +4,19 @@ import icon from "../icon.png";
 
 function NavBar({ user, isLoggedin }) {
   const [msg, setMsg] = useState("");
-  const [link, setLink] = useState("");
+  const [links, setLinks] = useState({
+    btnRight: "/login",
+    dashboard: "/dashboard",
+    userinfo: "/user-info",
+  });
 
   useEffect(() => {
     if (isLoggedin) {
       setMsg(`Hello, ${user.name}`);
-      setLink("/user-info");
+      setLinks({btnRight: "/user-info", btnLeft: "/dashboard"});
     } else {
       setMsg("Login");
-      setLink("/login");
+      setLinks({btnRight: "/login", btnLeft: "/"});
     }
   }, [isLoggedin]);
 
@@ -25,9 +29,9 @@ function NavBar({ user, isLoggedin }) {
               <p className="txt txt-logo">Fit</p>
               <p className="txt txt-logo">Spot.</p>
             </div>
-            <li className="txt txt-nav"><Link to="/" className="txt-underline">Home</Link></li>
+            <li className="txt txt-nav"><Link to={links["btnLeft"]} className="txt-underline">Home</Link></li>
             <li className="txt txt-nav"><Link to="/news" className="txt-underline">News</Link></li>
-            <li className="txt txt-nav push-left"><Link to={link} className="txt-underline">{msg}</Link></li>
+            <li className="txt txt-nav push-left"><Link to={links["btnRight"]} className="txt-underline">{msg}</Link></li>
         </ul>
     </nav>
   );

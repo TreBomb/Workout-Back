@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Dashboard({ user, setUser }) {
-    const [workoutList, setWorkoutList] = useState([]);
-    const [routinesList, setRoutinesList] = useState([]);
+function NewRoutine({ user, setUser }) {
 
     useEffect(() => {
         if (user) {
@@ -11,14 +9,6 @@ function Dashboard({ user, setUser }) {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                setWorkoutList(data);
-            })
-
-            fetch(`/users/${user.id}/weekly_routines`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                setRoutinesList(data);
             })
         }
     } ,[user]);
@@ -32,26 +22,12 @@ function Dashboard({ user, setUser }) {
             <div className="dashboard-card">
                 <h2>Daily Workouts</h2>
                 <div className="dashboard-card-content">
-                    {workoutList.map(workout => {
-                        return (
-                            <div key={workout.id} className="dashboard-workout-card">
-                                <h3>{workout.name}</h3>
-                            </div>
-                        );
-                    })}
                 </div>
                 <Link to="/new-workout"><button className="dashboard-button">New Workout</button></Link>
             </div>
             <div className="dashboard-card">
                 <h2>Weekly Routines</h2>
                 <div className="dashboard-card-content">
-                {routinesList.map(routine => {
-                        return (
-                            <div key={routine.id} className="dashboard-routine-card">
-                                <h3>{routine.name}</h3>
-                            </div>
-                        );
-                    })}
                 </div>
                 <Link to="/new-routine"><button className="dashboard-button">New Routine</button></Link>
             </div>
@@ -60,4 +36,4 @@ function Dashboard({ user, setUser }) {
     );
 }
 
-export default Dashboard;
+export default NewRoutine;

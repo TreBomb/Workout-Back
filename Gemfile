@@ -44,3 +44,4 @@ gem "active_model_serializers", "~> 0.10.12"
 #custom gems
 gem "dotenv-rails"
 gem "excon"
+gem "pg_search"

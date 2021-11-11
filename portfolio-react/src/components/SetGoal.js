@@ -33,12 +33,12 @@ function SetGoal({ user, setUser }) {
                     </div>
                     <div className="card" onClick={e => selectGoal("maintain")}>
                         <h1 className="txt card-header">Maintain</h1>
-                        <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="cut" />
+                        <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="maintain" />
                         <p className="txt card-info">A balance of reps and intensity. Aimed for keeping your current build.</p>
                     </div>
                     <div className="card" onClick={e => selectGoal("bulk")}>
                         <h1 className="txt card-header">Bulk</h1>
-                        <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="cut" />
+                        <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="bulk" />
                         <p className="txt card-info">High intensity, low reps, and rest in between sets. Ideal for increasing muscle mass and strength. </p>
                     </div>
                 </div>

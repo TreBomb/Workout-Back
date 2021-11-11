@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/signup', to: 'users#create'
   delete '/logout', to: 'sessions#destroy'
+  post '/exercise-filter', to: 'exercises#filter'
 end

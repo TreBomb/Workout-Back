@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import React from "react";
 import icon from "../icon.png";
 
 function Footer() {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-    fetch("/hello")
-        .then((r) => r.json())
-        .then((data) => setCount(data.count));
-    }, []);
-
     return (
-    <nav className="footer">
-        <div className="footer-container">
-            <div className="footer-left">
-                <img className="nav-bar-logo" src={icon} alt="logo" />
-                    <p>Page Count: {count}</p>
+    <div className="mega-spacer">
+        <nav className="footer">
+            <div className="footer-container">
+                <div className="footer-left">
+                    <img className="nav-bar-logo" src={icon} alt="logo" />
+                    <p className="txt txt-footer">The Fit Spot.</p>
+                    <p className="txt txt-footer">|</p>
+                    <p className="txt txt-footer">All exercises come from <a href="https://www.exercisedb.io/" className="link-dark">ExerciseDB</a></p>
+                </div>
+                <div className="footer-right">
+                    <p className="txt txt-footer">A Project by Trestin Ishak</p>
+                    <p className="txt txt-footer">|</p>
+                    <p className="txt txt-footer">Check out my <a href="" className="link-dark">Portfolio!</a></p>
+                </div>
             </div>
-            <div className="footer-right">
-                    <p>Check out my other projects</p>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
     );
 }
 

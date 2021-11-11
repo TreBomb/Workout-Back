@@ -9,6 +9,8 @@ import Signup from "./components/Signup";
 import UserInfo from "./components/UserInfo";
 import SetGoal from "./components/SetGoal";
 import Dashboard from "./components/Dashboard";
+import NewRoutine from "./components/NewRoutine";
+import NewWorkout from "./components/NewWorkout";
 import FourZeroFour from "./components/FourZeroFour";
 
 function App() {
@@ -58,10 +60,16 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard user={user} setUser={setUser} />
             </Route>
+            <Route exact path="/new-workout">
+              <NewWorkout user={user} setUser={setUser} />
+            </Route>
+            <Route exact path="/new-routine">
+              <NewRoutine user={user} setUser={setUser} />
+            </Route>
             <Route exact path="/404">
               <FourZeroFour />
             </Route>
-            {/* <Footer /> */}
+            <Footer />
         </div>
       </Switch>
     </Router>

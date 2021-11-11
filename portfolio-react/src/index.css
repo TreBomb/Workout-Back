@@ -3,14 +3,19 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   line-height: 1.5;
-  color: #ebe1d7;
-  background-color: #47413b;
+  color: #2b2b2b;
+  background-color: #f0edea;
   margin: 0;
 }
 
 a {
-  color: #ececec;
+  color: #202020;
   text-decoration: none;
+}
+
+.link-dark {
+  color: #ebe4de;
+  text-decoration: underline;
 }
 
 .App {
@@ -25,6 +30,11 @@ a {
   margin-top: 8vh;
 }
 
+.mega-spacer {
+  margin-top: 50%;
+  bottom: 0;
+}
+
 .error {
   font-size: 4em;
 }
@@ -36,26 +46,26 @@ a {
 
 .txt-cover {
   font-size: 3em;
-  color: #47413b;
+  color: #ebe4de;
 }
 
 .txt-form {
   font-size: 1.5em;
   margin: 30px;
-  color: #ebe1d7;
+  color: #2b2b2b;
 }
 
 .txt-footer {
   font-size: 1em;
   margin: 10px;
-  color: #ebe1d7;
+  color: #2b2b2b;
 }
 
 .txt-logo {
   text-align: left;
   font-weight: bolder;
   font-size: 1em;
-  color: #47413b;
+  color: #202020;
   margin: 0;
   margin-top: -0.6em;
   margin-left: 0.2em;
@@ -63,7 +73,7 @@ a {
 
 .txt-nav {
   font-size: 1.2em;
-  color: #ebe1d7;
+  color: #2b2b2b;
   margin-top: -0.3em;
 }
 
@@ -72,26 +82,50 @@ a {
 }
 
 .txt-underline:hover {
-  border-bottom: 2px solid #ebe1d7;
+  border-bottom: 2px solid #2b2b2b;
+}
+
+.txt-footer {
+  color: #ebe4de;
+}
+
+.txt-exercise-name {
+  font-size: 1.5em;
+  color: #202020;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+.txt-filters {
+  font-size: 1.5em;
+  color: #2b2b2b;
+  margin-top: -0.3em;
+  text-transform: capitalize;
+}
+
+.txt-exerise-info {
+  color: #2b2b2b;
+  margin: 0;
+  text-transform: capitalize;
 }
 
 /*--- BUTTONS ---*/
 .btn {
-  border: 3px solid #47413b;
+  border: 3px solid #ebe4de;
   border-radius: 6px;
 }
 
 .btn:hover {
   cursor: pointer;
-  border: 3px solid #e67a00;
-  color: #e67a00;
+  border: 3px solid #67d1c8;
+  color: #67d1c8;
   border-radius: 6px;
   transition: all 0.4s ease-in-out;
 }
 
 .btn-primary {
   background-color: #00000000;
-  color: #47413b;
+  color: #ebe4de;
   width: 8em;
   height: 2em;
   font-size: 1.5em;
@@ -104,28 +138,44 @@ a {
 
 .btn-secondary {
   background-color: #00000000;
-  border: 3px solid #e67a00;
-  color: #e67a00;
+  border: 3px solid #67d1c8;
+  color: #67d1c8;
   width: 5em;
   height: 2em;
   font-size: 1.2em;
 }
 
 .btn-secondary:hover {
-  background-color: #ececec;
+  background-color: #202020;
 }
 
 .btn-tertiary {
   background-color: #00000000;
-  border: 3px solid #e67a00;
-  color: #e67a00;
+  border: 3px solid #67d1c8;
+  color: #67d1c8;
   width: 6em;
   height: 2em;
   font-size: .9em;
 }
 
 .btn-tertiary:hover {
-  background-color: #ececec;
+  background-color: #202020;
+}
+
+.btn-quaternary {
+  background-color: #00000000;
+  color: #202020;
+  border: 3px solid #202020;
+  width: 8em;
+  height: 2em;
+  font-size: .9em;
+  margin-bottom: 5px;
+}
+
+.btn-quaternary:hover {
+  color: #202020;
+  background-color: #67d1c8;
+  border: 3px solid #202020;
 }
 
 /*--- CARDS ---*/
@@ -138,6 +188,12 @@ a {
 
 .goal-cards {
   width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.exercise-cards {
+  width: 90%;
   margin: auto;
   text-align: center;
 }
@@ -158,12 +214,21 @@ a {
   justify-content: space-around;
 }
 
+.exercise-grid-wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, .5fr));
+  grid-auto-rows: 1fr;
+  align-content: space-between;
+  justify-content: space-around;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   text-align: left;
-  background-color: #ebe1d7;
-  border: 3px solid #ebe1d7;
+  background-color: #2b2b2b;
+  border: 3px solid #2b2b2b;
   border-radius: 6px;
   width: 100%;
   height: 100%;
@@ -174,8 +239,8 @@ a {
 
 .card:hover {
   cursor: pointer;
-  background-color: #f3efea;
-  border: 3px solid #e67a00;
+  background-color: #0a0a0a;
+  border: 3px solid #67d1c8;
   border-radius: 6px;
   margin-top: -2px;
   transition: all 0.2s ease-in-out;
@@ -189,7 +254,7 @@ a {
 }
 
 .card-base {
-  color: #47413b;
+  color: #ebe4de;
   width: 100%;
   height: 8em;
 }
@@ -202,28 +267,91 @@ a {
 }
 
 .card-header {
-  color: #e67a00;
+  color: #67d1c8;
   margin: 0;
   margin-left: 5px;
-  font-size: 1.8em;
+  font-size: 1.6em;
 }
 
 .card-info {
-  color: #47413b;
+  color: #ebe4de;
   margin-top: 0;
   margin-left: 5px;
   font-size: 1em;
+  height: 8em;
 }
 
 .card-div {
   display: flex;
   flex-direction: column;
   text-align: left;
-  border: 3px solid #ebe1d7;
+  border: 3px solid #2b2b2b;
   border-radius: 6px;
   width: 100%;
   height: 100%;
   margin: 0;
+}
+
+.exercise-card {
+  border: 3px solid #2b2b2b;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+}
+
+.exercise-name {
+  height: 8em;
+}
+
+.exercise-gif {
+  height: 15em;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*--- EXERCISES ---*/
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.filter-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+.filter-select {
+  width: 30%;
+  height: 2em;
+  border: 3px solid #2b2b2b;
+  border-radius: 6px;
+  font-size: 1em;
+  margin-top: -0.5em;
+}
+
+.search-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+.search-input  {
+  width: 40%;
+  height: 2em;
+  border: 3px solid #2b2b2b;
+  border-radius: 6px;
+  font-size: 1em;
+  margin-top: -0.5em;
 }
 
 /*--- FORMS ---*/
@@ -242,7 +370,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid #ebe1d7;
+  border: 3px solid #2b2b2b;
   border-radius: 6px;
   padding: 10px;
 }
@@ -252,7 +380,7 @@ a {
   height: 2em;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 3px solid #ebe1d7;
+  border: 3px solid #2b2b2b;
   border-radius: 6px;
   padding-left: 10px;
   font-size: 1em;
@@ -270,7 +398,11 @@ a {
 
 /*--- NAV ---*/
 .nav-bar {
-  background-color: #e67a00;
+  /* 7adfda e67a00 67d1c8 */
+  /* ebe1d7 2b2b2b */
+  /* 47413b ebe4de */
+  /* ececec 202020 */
+  background-color: #67d1c8;
   width: 100%;
   height: 60px;
   position: fixed;
@@ -313,8 +445,8 @@ a {
 }
 
 .cover {
-  background-color: #ebe1d7;
-  color: #47413b;
+  background-color: #2b2b2b;
+  color: #ebe4de;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -325,10 +457,10 @@ a {
 
 /*--- FOOTER ---*/
 .footer {
-  background-color: #ebe1d7;
-  color: #47413b;
+  background-color: #2b2b2b;
+  color: #ebe4de;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 10vh;
@@ -336,6 +468,38 @@ a {
   bottom: 0;
   left: 0;
   z-index: 1;
+}
+
+.footer-container {
+  background-color: #2b2b2b;
+  color: #ebe4de;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.footer-left {
+  margin-right: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-right {
+  margin-left: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 /*--- MOBILE ---*/
