@@ -21,12 +21,22 @@ function Signup({ setUser, setIsLoggedin }) {
     };
 
     fetch('/signup', requestOptions)
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Something went wrong');
+      }
+    })
     .then(data => {
       console.log(data);
       setUser(data);
       setIsLoggedin(true);
       history.push("/set-goal");
+    })
+    .catch(error => {
+      console.log('error', error);
+      alert('Please check that all of your info is correct and your passwords match');
     });
   }
 

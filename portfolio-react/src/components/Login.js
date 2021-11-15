@@ -19,12 +19,24 @@ function Login({ setUser, setIsLoggedin }) {
     };
 
     fetch('/login', requestOptions)
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Something went wrong');
+      }
+    })
     .then(data => {
-      console.log(data);
-      setUser(data);
-      setIsLoggedin(true);
-      history.push("/dashboard");
+      if (data.error) {
+        console.log(data);
+        setUser(data);
+        setIsLoggedin(true);
+        history.push("/dashboard");
+      }
+    })
+    .catch(error => {
+      console.log('error', error);
+      alert('Your Username/Password is incorrect');
     });
   }
 
