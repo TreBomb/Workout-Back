@@ -40,7 +40,7 @@ function Dashboard({ user, setUser }) {
                         );
                     })}
                 </div>
-                <Link to="/new-workout"><button className="dashboard-button">New Workout</button></Link>
+                <Link to="/new-workout"><button className="btn btn-quaternary">New Workout</button></Link>
             </div>
             <div className="dashboard-card">
                 <h2>Weekly Routines</h2>
@@ -53,7 +53,7 @@ function Dashboard({ user, setUser }) {
                         );
                     })}
                 </div>
-                <Link to="/new-routine"><button className="dashboard-button">New Routine</button></Link>
+                <Link to="/new-routine"><button className="btn btn-quaternary">New Routine</button></Link>
             </div>
         </div>
     </div>

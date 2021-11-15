@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-function ExerciseCards({ split, user }) {
+function ExerciseCards({ split, user, workoutName }) {
     const history = useHistory();
     const [search, setSearch] = useState("all");
     const [target, setTarget] = useState("all");
@@ -59,7 +59,7 @@ function ExerciseCards({ split, user }) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     user_id: user.id,
-                    name: "Test Workout 0"
+                    name: workoutName
                 })
               };
           

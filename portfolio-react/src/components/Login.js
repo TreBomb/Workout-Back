@@ -24,7 +24,7 @@ function Login({ setUser, setIsLoggedin }) {
       console.log(data);
       setUser(data);
       setIsLoggedin(true);
-      history.push("/");
+      history.push("/dashboard");
     });
   }
 
@@ -37,7 +37,7 @@ function Login({ setUser, setIsLoggedin }) {
                 <input type="password" placeholder="Password" className="input input-text" onChange={e => setInfo({...info, password: e.target.value})} />
                 <button className="btn btn-secondary">Login</button>
             </form>
-            <h3 className="txt txt-footer">Don't have an account?</h3>
+            <h3 className="txt txt-footnote">Don't have an account?</h3>
             <Link to="/signup"><button className="btn btn-tertiary">Sign Up</button></Link>
         </div>
     </div>

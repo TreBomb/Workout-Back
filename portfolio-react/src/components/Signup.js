@@ -41,7 +41,7 @@ function Signup({ setUser, setIsLoggedin }) {
                 <input type="password" placeholder="Confirm Password" className="input input-text" onChange={e => setInfo({...info, password_confirmation: e.target.value})} />
                 <button className="btn btn-secondary">Sign Up</button>
             </form>
-            <h3 className="txt txt-footer">Already have an account?</h3>
+            <h3 className="txt txt-footnote">Already have an account?</h3>
             <Link to="/login"><button className="btn btn-tertiary">Login</button></Link>
         </div>
     </div>

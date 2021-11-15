@@ -5,6 +5,8 @@ import ExerciseCards from "./ExerciseCards";
 function NewWorkout({ user, setUser }) {
     const [title, setTitle] = useState("Choose Your Split");
     const [split, setSplit] = useState([]);
+    const [stage, setStage] = useState("Goals");
+    const [workoutName, setWorkoutName] = useState("New Workout");
 
     const styleTypes = {
         "Single Focus": ["Chest", "Back", "Legs", "Arms", "Shoulders", "Core"],
@@ -33,32 +35,69 @@ function NewWorkout({ user, setUser }) {
 
     const selectGoal = goal => {
         console.log(goal);
-        setTitle("Select Your Exercises");
+        setTitle("Name Your Workout");
         setSplit(styleTypes[goal]);
+        setStage("Name");
     }
 
-    return (
-    <div className="workouts-form">
-        <div className="spacer" />
-        <h1 className="txt txt-title">{title}</h1>
-        <hr/>
-        <div className="goal-cards">
-            <div className="goal-grid-wrapper">
-                {Object.keys(styleTypes).map(keyName => {
-                    return (
-                        <div className="goal-grid-wrapper">
-                            <div className="card" onClick={e => selectGoal(keyName)}>
-                                <h1 className="txt card-header">{keyName}</h1>
-                                <p className="txt card-info">{descriptions[keyName]}</p>
-                            </div>
-                        </div>
-                    );
-                })}
+    const setName = name => {
+        console.log(name);
+        setTitle("Select Your Exercises");
+        setWorkoutName(name);
+        setStage("Exercises");
+    }
+
+
+    if (stage === "Goals") {
+        return (
+            <div className="workouts-form">
+                <div className="spacer" />
+                <h1 className="txt txt-title">{title}</h1>
+                <hr/>
+                <div className="goal-cards">
+                    <div className="goal-grid-wrapper">
+                        {Object.keys(styleTypes).map(keyName => {
+                            return (
+                                <div className="goal-grid-wrapper">
+                                    <div className="goal-card" onClick={e => selectGoal(keyName)}>
+                                        <h1 className="txt card-header">{keyName}</h1>
+                                        <p className="txt goal-card-info">{descriptions[keyName]}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
-        </div>
-        <ExerciseCards split={split} user={user} />
-    </div>
-    );
+            );
+    } else if (stage === "Name") {
+        return (
+            <div className="workouts-form">
+                <div className="spacer" />
+                <h1 className="txt txt-title">{title}</h1>
+                <hr/>
+                <div className="title-div">
+                    <input
+                        className="title-input"
+                        type="text"
+                        label="Name"
+                        placeholder="Workout Title"
+                        onChange={(e) => setWorkoutName(e.target.value)}
+                    />
+                    <button className="btn btn-quaternary" onClick={e => setName(workoutName)}>Done</button>
+                </div>
+            </div>
+        );
+    } else if (stage === "Exercises") {
+        return (
+            <div className="workouts-form">
+                <div className="spacer" />
+                <h1 className="txt txt-title">{title}</h1>
+                <hr/>
+                <ExerciseCards split={split} user={user} workoutName={workoutName} />
+            </div>
+        );
+    }
 }
 
 export default NewWorkout;

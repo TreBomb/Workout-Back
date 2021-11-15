@@ -34,8 +34,8 @@ function UserInfo({ user, setUser, isLoggedin, setIsLoggedin }) {
             .then(res => {
               if (res.ok) {
                 console.log("Deleted!")
-                setUser(null);
                 setIsLoggedin(false);
+                setUser(null);
                 history.push('/');
               }
             })
