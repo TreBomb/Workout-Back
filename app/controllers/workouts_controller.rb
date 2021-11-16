@@ -1,12 +1,12 @@
 class WorkoutsController < ApplicationController
     def index
         if params[:user_id]
-            @workouts = Workout.where(user_id: params[:user_id]), serializer: ExerciseListSerializer
+            @workouts = Workout.where(user_id: params[:user_id])
         else
             @workouts = Workout.all
         end
 
-        render json: @workouts
+        render json: @workouts, serializer: ExerciseListSerializer
     end
 
     def show

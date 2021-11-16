@@ -36,6 +36,13 @@ function Dashboard({ user, setUser }) {
                         return (
                             <div key={workout.id} className="dashboard-workout-card">
                                 <h3>{workout.name}</h3>
+                                {workout.exercises.map(exercise => {
+                                    return (
+                                        <div key={exercise.id}>
+                                            <p>{exercise.name}</p>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         );
                     })}
