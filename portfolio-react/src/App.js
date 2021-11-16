@@ -16,18 +16,39 @@ import FourZeroFour from "./components/FourZeroFour";
 function App() {
   const [user, setUser] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [workoutInfo, setWorkoutInfo] = useState(null);
 
   useEffect(() => {
-    fetch ("/account")
+    fetch("https://fit-spot.herokuapp.com/account")
     .then(res => res.json())
     .then(data => {
       if (data.name) {
         console.log(data);
         setUser(data);
         setIsLoggedin(true);
+        if (data.goal === "bulk") {
+          setWorkoutInfo({
+            reps: "12, 12, 8, 6",
+            rest: "120",
+            weight: "heavy"
+          });
+        } else if (data.goal === "maintain") {
+          setWorkoutInfo({
+            reps: "15, 12, 12, 8",
+            rest: "90",
+            weight: "moderate"
+          });
+        } else if (data.goal === "cut") {
+          setWorkoutInfo({
+            reps: "20, 15, 15, 12, 12",
+            rest: "45",
+            weight: "light"
+          });
+        }
       } else {
         setUser(null);
         setIsLoggedin(false);
+        setWorkoutInfo(null);
       }
     })
     .catch(err => console.log(err));
