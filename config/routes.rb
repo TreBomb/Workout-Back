@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   delete '/logout', to: 'sessions#destroy'
   post '/exercise-filter', to: 'exercises#filter'
+
+  #Heroku fallback
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
