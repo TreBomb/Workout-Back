@@ -19,7 +19,7 @@ function App() {
   const [workoutInfo, setWorkoutInfo] = useState(null);
 
   useEffect(() => {
-    fetch("https://fit-spot.herokuapp.com/account")
+    fetch("/account")
     .then(res => res.json())
     .then(data => {
       if (data.name) {

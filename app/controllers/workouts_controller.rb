@@ -6,7 +6,7 @@ class WorkoutsController < ApplicationController
             @workouts = Workout.all
         end
 
-        render json: @workouts, serializer: ExerciseListSerializer
+        render json: @workouts, include: [:user, :exercises]
     end
 
     def show

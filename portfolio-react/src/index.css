@@ -6,6 +6,7 @@ body {
   color: #2b2b2b;
   background-color: #f0edea;
   margin: 0;
+  width: 100%;
 }
 
 a {
@@ -110,6 +111,22 @@ a {
   text-transform: capitalize;
 }
 
+.txt-card-title {
+  font-size: 1.2em;
+  color: #ebe4de;
+  margin-top: -0.3em;
+  margin-bottom: 10px;
+}
+
+.txt-card-text {
+  font-size: .8em;
+  color: #ebe4de;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 /*--- BUTTONS ---*/
 .btn {
   border: 3px solid #ebe4de;
@@ -189,6 +206,12 @@ a {
 
 .goal-cards {
   width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.routine-cards {
+  width: 90%;
   margin: auto;
   text-align: center;
 }
@@ -304,6 +327,7 @@ a {
   margin: 0;
   align-self: center;
   justify-self: center;
+  align-items: center;
 }
 
 .goal-card:hover {
@@ -330,6 +354,13 @@ a {
   flex-direction: column;
   text-align: center;
   overflow: hidden;
+}
+
+.exercise-card:hover {
+  cursor: pointer;
+  background-color: #67d1c8;
+  margin-top: -2px;
+  transition: all 0.2s ease-in-out;
 }
 
 .exercise-name {
@@ -372,7 +403,7 @@ a {
 }
 
 .filter-select {
-  width: 30%;
+  width: 40%;
   height: 2em;
   border: 3px solid #2b2b2b;
   border-radius: 6px;
@@ -413,6 +444,45 @@ a {
   font-size: 1em;
   margin-top: -0.5em;
   margin-bottom: 1em;
+}
+
+/*--- ROUTINES ---*/
+.routines-form {
+  margin-top: 30px;
+  margin-bottom: 300px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.routine-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.daily-select {
+  width: 90%;
+  justify-self: flex-end;
+  margin-bottom: 30px;
+  height: 5em;
+  font-size: 1em;
+}
+
+.grid-gap {
+  margin-top: 5vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 /*--- FORMS ---*/
@@ -465,6 +535,63 @@ a {
   margin-top: 10vh;
   margin-left: 5vw;
   margin-right: 5vw;
+}
+
+/*--- DASHBOARD ---*/
+.dash-page {
+  margin: auto;
+  padding: 20px;
+  left: 0;
+  text-align: center;
+}
+
+.dashboard-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  width: 100%;
+  margin: 0;
+  align-self: center;
+  justify-self: center;
+}
+
+.dashboard-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+}
+
+.dashboard-workout-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background-color: #e6e6e6;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+  align-self: center;
+  justify-self: center;
+}
+
+.dashboard-workout-card:hover {
+  cursor: pointer;
+  background-color: #67d1c8;
+  transition: all 0.4s ease-in-out;
 }
 
 /*--- NAV ---*/

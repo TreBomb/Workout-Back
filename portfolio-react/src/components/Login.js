@@ -18,7 +18,7 @@ function Login({ setUser, setIsLoggedin }) {
       body: JSON.stringify(info)
     };
 
-    fetch('https://fit-spot.herokuapp.com/login', requestOptions)
+    fetch('/login', requestOptions)
     .then(response => {
       if (response.ok) {
         return response.json();

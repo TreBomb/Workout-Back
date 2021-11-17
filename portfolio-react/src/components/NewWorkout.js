@@ -12,8 +12,8 @@ function NewWorkout({ user, setUser }) {
         "Single Focus": ["Chest", "Back", "Legs", "Arms", "Shoulders", "Core"],
         "Push/Pull Day": ["Chest/Triceps", "Back/Biceps", "Legs/Shoulders"],
         "Push Day": ["Chest", "Shoulders", "Triceps"],
-        "Pull Day": ["Back", "Biceps", "Abs"],
-        "Upper/Lower": ["Chest/Shoulders/Back/Arms/Core", "Legs"]
+        "Pull Day": ["Back", "Biceps", "Core"],
+        "Upper/Lower": ["Upper Body", "Lower Body"]
     };
     const descriptions = {
         "Single Focus": "A workout that focuses on a single muscle group each day. Allows for better recovery time.",
@@ -25,7 +25,7 @@ function NewWorkout({ user, setUser }) {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://fit-spot.herokuapp.com/users/${user.id}/workouts`)
+            fetch(`/users/${user.id}/workouts`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

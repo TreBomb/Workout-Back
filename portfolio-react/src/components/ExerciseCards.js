@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 function ExerciseCards({ split, user, workoutName }) {
     const history = useHistory();
     const [search, setSearch] = useState("all");
-    const [target, setTarget] = useState("all");
+    const [target, setTarget] = useState(split[0]);
+    const [filteredTerms, setFilteredTerms] = useState([]);
     const [exercises, setExercises] = useState([]);
     const [workoutList, setWorkoutList] = useState([]);
     const [newWorkout, setNewWorkout] = useState("");
@@ -17,7 +18,7 @@ function ExerciseCards({ split, user, workoutName }) {
                 body: JSON.stringify({filter: search, target: target})
               };
           
-              fetch('https://fit-spot.herokuapp.com/exercise-filter', requestOptions)
+              fetch('/exercise-filter', requestOptions)
               .then(response => response.json())
               .then(data => {
                 console.log(data);
@@ -41,7 +42,7 @@ function ExerciseCards({ split, user, workoutName }) {
                 })
               };
           
-            fetch('https://fit-spot.herokuapp.com/workout_exercises', requestOptions)
+            fetch('/workout_exercises', requestOptions)
             .then(response => response.json())
             .then(data => {
             console.log(data);
@@ -50,27 +51,30 @@ function ExerciseCards({ split, user, workoutName }) {
         });
     }, [newWorkout])
 
-    const addExercise = (exercise) => {
-        if (workoutList.length <= 4) {
-            setWorkoutList([...workoutList, exercise]);
-        } else {
-            const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user_id: user.id,
-                    name: workoutName
-                })
-              };
-          
-            fetch('https://fit-spot.herokuapp.com/workouts', requestOptions)
-            .then(response => response.json())
-            .then(data => {
-            console.log(data);
-            setNewWorkout(data.id);
-            history.push("/dashboard");
-            });
-        }
+    useEffect(() => {
+    if (workoutList.length === 5) {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                user_id: user.id,
+                name: workoutName
+            })
+          };
+      
+        fetch('/workouts', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+        console.log(data);
+        setNewWorkout(data.id);
+        history.push("/dashboard");
+        });
+    }
+    }, [workoutList])
+
+    const addExercise = (event, exercise) => {
+        setWorkoutList([...workoutList, exercise]);
+        setFilteredTerms([...filteredTerms, event.currentTarget.querySelector('.exercise-name').querySelector('h3').innerText.toLowerCase()]);
     }
 
     return (
@@ -81,16 +85,9 @@ function ExerciseCards({ split, user, workoutName }) {
                     <select className="filter-select" onChange={(e) => setTarget(e.target.value)}>
                         {split.map(item => {
                             return (
-                                <option value="all">All</option>
+                                <option value={item}>{item}</option>
                             );
                         })}
-                        <option value="all">All</option>
-                        <option value="chest">Chest</option>
-                        <option value="back">Back</option>
-                        <option value="arms">Arms</option>
-                        <option value="legs">Legs</option>
-                        <option value="shoulders">Shoulders</option>
-                        <option value="waist">Core</option>
                     </select>
                 </div>
                 <div className="search-div">
@@ -108,20 +105,22 @@ function ExerciseCards({ split, user, workoutName }) {
             <div className="exercise-cards">
                 <div className="exercise-grid-wrapper">
                     {exercises.map(exercise => {
-                        if (!exercise.name.includes("stretch")) {
-                            return (
-                                <div className="exercise-card" key={exercise.id}>
-                                    <div className="exercise-name">
-                                        <h3 className="txt txt-exercise-name">{exercise.name}</h3>
+                        let exerciseName = exercise.name.trim();
+                        if (!filteredTerms.includes(exerciseName.toLowerCase())) {
+                            if (!exerciseName.includes("stretch")) {
+                                return (
+                                    <div className="exercise-card" key={exercise.id} onClick={event => addExercise(event, exercise)}>
+                                        <div className="exercise-name">
+                                            <h3 className="txt txt-exercise-name">{exercise.name}</h3>
+                                        </div>
+                                        <img src={exercise.video} alt={exercise.name} className="exercise-gif" />
+                                        <div className="exercise-details">
+                                            <p className="txt txt-exerise-info">Muscle: {exercise.target}</p>
+                                            <p className="txt txt-exerise-info">Equipment: {exercise.equipment}</p>
+                                        </div>
                                     </div>
-                                    <img src={exercise.video} alt={exercise.name} className="exercise-gif" />
-                                    <div className="exercise-details">
-                                        <p className="txt txt-exerise-info">Muscle: {exercise.target}</p>
-                                        <p className="txt txt-exerise-info">Equipment: {exercise.equipment}</p>
-                                        <button className="btn btn-quaternary" onClick={e => addExercise(exercise)}>Add Exercise</button>
-                                    </div>
-                                </div>
-                            )
+                                )
+                            }
                         }
                     })}
                 </div>

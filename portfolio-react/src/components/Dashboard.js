@@ -7,14 +7,14 @@ function Dashboard({ user, setUser }) {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://fit-spot.herokuapp.com/users/${user.id}/workouts`)
+            fetch(`/users/${user.id}/workouts`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 setWorkoutList(data);
             })
 
-            fetch(`https://fit-spot.herokuapp.com/users/${user.id}/weekly_routines`)
+            fetch(`/users/${user.id}/weekly_routines`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -24,7 +24,7 @@ function Dashboard({ user, setUser }) {
     } ,[user]);
 
     return (
-    <div className="news-cards">
+    <div className="dash-page">
         <div className="spacer" />
         <h1 className="txt txt-title">Your Dashboard</h1>
         <hr/>
@@ -35,14 +35,8 @@ function Dashboard({ user, setUser }) {
                     {workoutList.map(workout => {
                         return (
                             <div key={workout.id} className="dashboard-workout-card">
-                                <h3>{workout.name}</h3>
-                                {workout.exercises.map(exercise => {
-                                    return (
-                                        <div key={exercise.id}>
-                                            <p>{exercise.name}</p>
-                                        </div>
-                                    )
-                                })}
+                                <h3 className="txt txt-workout-name">{workout.name}</h3>
+                                <button className="btn btn-quaternary">View Workout</button>
                             </div>
                         );
                     })}

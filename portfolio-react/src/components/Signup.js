@@ -20,7 +20,7 @@ function Signup({ setUser, setIsLoggedin }) {
       body: JSON.stringify(info)
     };
 
-    fetch('https://fit-spot.herokuapp.com/signup', requestOptions)
+    fetch('/signup', requestOptions)
     .then(response => {
       if (response.ok) {
         return response.json();

@@ -12,7 +12,7 @@ function SetGoal({ user, setUser }) {
             body: JSON.stringify({goal: goal})
           };
       
-          fetch(`https://fit-spot.herokuapp.com/users/${user.id}`, requestOptions)
+          fetch(`/users/${user.id}`, requestOptions)
           .then(response => response.json())
           .then(data => {
             console.log(data);
