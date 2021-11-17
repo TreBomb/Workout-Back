@@ -11,6 +11,7 @@ import SetGoal from "./components/SetGoal";
 import Dashboard from "./components/Dashboard";
 import NewRoutine from "./components/NewRoutine";
 import NewWorkout from "./components/NewWorkout";
+import Viewer from "./components/Viewer";
 import FourZeroFour from "./components/FourZeroFour";
 
 function App() {
@@ -26,25 +27,25 @@ function App() {
         console.log(data);
         setUser(data);
         setIsLoggedin(true);
-        if (data.goal === "bulk") {
-          setWorkoutInfo({
-            reps: "12, 12, 8, 6",
-            rest: "120",
-            weight: "heavy"
-          });
-        } else if (data.goal === "maintain") {
-          setWorkoutInfo({
-            reps: "15, 12, 12, 8",
-            rest: "90",
-            weight: "moderate"
-          });
-        } else if (data.goal === "cut") {
-          setWorkoutInfo({
-            reps: "20, 15, 15, 12, 12",
-            rest: "45",
-            weight: "light"
-          });
-        }
+        // if (data.goal === "bulk") {
+        //   setWorkoutInfo({
+        //     reps: "12, 12, 8, 6",
+        //     rest: "120",
+        //     weight: "heavy"
+        //   });
+        // } else if (data.goal === "maintain") {
+        //   setWorkoutInfo({
+        //     reps: "15, 12, 12, 8",
+        //     rest: "90",
+        //     weight: "moderate"
+        //   });
+        // } else if (data.goal === "cut") {
+        //   setWorkoutInfo({
+        //     reps: "20, 15, 15, 12, 12",
+        //     rest: "45",
+        //     weight: "light"
+        //   });
+        // }
       } else {
         setUser(null);
         setIsLoggedin(false);
@@ -86,6 +87,9 @@ function App() {
             </Route>
             <Route exact path="/new-routine">
               <NewRoutine user={user} setUser={setUser} />
+            </Route>
+            <Route exact path="/viewer">
+              <Viewer user={user} />
             </Route>
             <Route exact path="/404">
               <FourZeroFour />

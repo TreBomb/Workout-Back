@@ -14,6 +14,14 @@ a {
   text-decoration: none;
 }
 
+hr {
+  border-top: 1px solid;
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
 .link-dark {
   color: #ebe4de;
   text-decoration: underline;
@@ -91,6 +99,20 @@ a {
   border-bottom: 2px solid #2b2b2b;
 }
 
+.txt-workout-name {
+  font-size: 1.5em;
+  color: #2b2b2b;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.txt-view {
+  font-size: .8em;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
 .txt-exercise-name {
   font-size: 1.5em;
   color: #202020;
@@ -125,6 +147,13 @@ a {
   margin-bottom: 0px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.txt-info-list {
+  font-size: 1.2em;
+  color: #ebe4de;
+  margin: 0px;
+  margin-bottom: 10px;
 }
 
 /*--- BUTTONS ---*/
@@ -208,6 +237,11 @@ a {
   width: 80%;
   margin: auto;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .routine-cards {
@@ -231,9 +265,11 @@ a {
 }
 
 .goal-grid-wrapper {
+  float: center;
+  width: 100%;
   display: grid;
   gap: 3%;
-  grid-template-columns: repeat(auto-fill, minmax(250px, .5fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, .5fr));
   align-content: space-between;
   justify-content: space-around;
 }
@@ -580,7 +616,7 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background-color: #e6e6e6;
+  background-color: #e4e4e4;
   width: 100%;
   margin: 0;
   margin-bottom: 10px;
@@ -592,6 +628,26 @@ a {
   cursor: pointer;
   background-color: #67d1c8;
   transition: all 0.4s ease-in-out;
+}
+
+/*--- VIEWER ---*/
+.viewer-content {
+  background-color: #2b2b2b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20%;
+}
+
+.view-info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
 }
 
 /*--- NAV ---*/

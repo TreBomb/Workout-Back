@@ -34,10 +34,13 @@ function Dashboard({ user, setUser }) {
                 <div className="dashboard-card-content">
                     {workoutList.map(workout => {
                         return (
-                            <div key={workout.id} className="dashboard-workout-card">
+                                <Link to={{
+                                    pathname:"/viewer",
+                                    state:{ show: "workout", id: workout.id }
+                                }} className="dashboard-workout-card" key={workout.id}>
                                 <h3 className="txt txt-workout-name">{workout.name}</h3>
-                                <button className="btn btn-quaternary">View Workout</button>
-                            </div>
+                                    <p className="txt txt-view">Click To View Workout</p>
+                                </Link>
                         );
                     })}
                 </div>
@@ -48,9 +51,13 @@ function Dashboard({ user, setUser }) {
                 <div className="dashboard-card-content">
                 {routinesList.map(routine => {
                         return (
-                            <div key={routine.id} className="dashboard-routine-card">
-                                <h3>{routine.name}</h3>
-                            </div>
+                            <Link to={{
+                                pathname:"/viewer",
+                                state:{ show: "weekly_routine", id: routine.id }
+                            }} className="dashboard-workout-card" key={routine.id}>
+                            <h3 className="txt txt-workout-name">{routine.name}</h3>
+                                <p className="txt txt-view">Click To View Routine</p>
+                            </Link>
                         );
                     })}
                 </div>

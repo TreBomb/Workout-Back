@@ -16,9 +16,9 @@ class WeeklyRoutinesController < ApplicationController
     end
 
     def create
-        routine = WeeklyRoutine.create(routine_params, goal: nil)
+        routine = WeeklyRoutine.new(routine_params)
 
-        if routine.valid?
+        if routine.save
             render json: routine, status: :created
         else
             render json: { errors: routine.errors.full_messages }, status: :unprocessable_entity

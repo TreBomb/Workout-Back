@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function NewRoutine({ user, setUser }) {
+    const history = useHistory();
     const [days, setDays] = useState(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]);
     const [workouts, setWorkouts] = useState([]);
+    const [routineName, setRoutineName] = useState("");
     const [clickedInfo, setClickedInfo] = useState([]);
     const [selected, setSelected] = useState({
-        Monday: {name: "", exercises: []},
-        Tuesday: {name: "", exercises: []},
-        Wednesday: {name: "", exercises: []},
-        Thursday: {name: "", exercises: []},
-        Friday: {name: "", exercises: []}
+        Monday: {name: "", id: "", exercises: []},
+        Tuesday: {name: "",id: "",  exercises: []},
+        Wednesday: {name: "", id: "", exercises: []},
+        Thursday: {name: "", id: "", exercises: []},
+        Friday: {name: "", id: "", exercises: []}
     });
 
     useEffect(() => {
@@ -27,19 +29,59 @@ function NewRoutine({ user, setUser }) {
     useEffect(() => {
             let current = workouts.find(workout => workout.id == clickedInfo["workout"]);
             if (current) {
-                setSelected({...selected, [clickedInfo["day"]]: {...selected[clickedInfo["day"]], name: current["name"], exercises: current["exercises"]}});
+                setSelected({...selected, [clickedInfo["day"]]: {...selected[clickedInfo["day"]], name: current["name"], id: clickedInfo["workout"], exercises: current["exercises"]}});
             }
             if (clickedInfo["workout"] == "none") {
-                setSelected({...selected, [clickedInfo["day"]]: {...selected[clickedInfo["day"]], name: "none", exercises: []}});
+                setSelected({...selected, [clickedInfo["day"]]: {...selected[clickedInfo["day"]], name: "none", id: "", exercises: []}});
             }
             console.log(selected);
     } ,[clickedInfo]);
+
+    const saveRoutine = selected => {
+
+        const objs = Object.values(selected);
+        const filters = objs.filter(obj => obj.name == "none" || obj.name == "");
+        console.log(filters, routineName);
+
+        if (filters.length == 0 && routineName != "") {
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id: user.id,
+                    name: routineName,
+                    workout1_id: selected["Monday"].id,
+                    workout2_id: selected["Tuesday"].id,
+                    workout3_id: selected["Wednesday"].id,
+                    workout4_id: selected["Thursday"].id,
+                    workout5_id: selected["Friday"].id
+                })
+              };
+          
+            fetch('/weekly_routines', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                history.push("/dashboard");
+            });
+        }
+    }
 
     return (
         <div className="routines-form">
             <div className="spacer" />
             <h1 className="txt txt-title">Plan Your Week</h1>
             <hr/>
+            <h3 className="txt">Name Your Routine</h3>
+            <div className="title-div">
+                    <input
+                        className="title-input"
+                        type="text"
+                        label="Name"
+                        placeholder="Routine Title"
+                        onChange={(e) => setRoutineName(e.target.value)}
+                    />
+            </div>
             <div className="routine-cards">
                 <div className="goal-grid-wrapper">
                     {days.map(day => {
@@ -74,7 +116,7 @@ function NewRoutine({ user, setUser }) {
                     </div>
                 </div>
                 <div className="grid-gap">
-                    <button className="btn btn-secondary">Save</button>
+                    <button className="btn btn-secondary" onClick={e => saveRoutine(selected)}>Save</button>
                 </div>
             </div>
         </div>
