@@ -18,7 +18,7 @@ function ExerciseCards({ split, user, workoutName }) {
                 body: JSON.stringify({filter: search, target: target})
               };
           
-              fetch('/exercise-filter', requestOptions)
+              fetch('https://fit-spot.herokuapp.com/exercise-filter', requestOptions)
               .then(response => response.json())
               .then(data => {
                 console.log(data);
@@ -42,7 +42,7 @@ function ExerciseCards({ split, user, workoutName }) {
                 })
               };
           
-            fetch('/workout_exercises', requestOptions)
+            fetch('https://fit-spot.herokuapp.com/workout_exercises', requestOptions)
             .then(response => response.json())
             .then(data => {
             console.log(data);
@@ -62,7 +62,7 @@ function ExerciseCards({ split, user, workoutName }) {
             })
           };
       
-        fetch('/workouts', requestOptions)
+        fetch('https://fit-spot.herokuapp.com/workouts', requestOptions)
         .then(response => response.json())
         .then(data => {
         console.log(data);

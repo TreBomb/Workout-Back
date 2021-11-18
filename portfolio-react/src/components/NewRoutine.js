@@ -17,7 +17,7 @@ function NewRoutine({ user, setUser }) {
 
     useEffect(() => {
         if (user) {
-            fetch(`/users/${user.id}/workouts`)
+            fetch(`https://fit-spot.herokuapp.com/users/${user.id}/workouts`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -58,7 +58,7 @@ function NewRoutine({ user, setUser }) {
                 })
               };
           
-            fetch('/weekly_routines', requestOptions)
+            fetch('https://fit-spot.herokuapp.com/weekly_routines', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

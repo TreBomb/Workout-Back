@@ -12,7 +12,7 @@ function Viewer({ user }) {
 
     useEffect(() => {
         if (show != null && id != null && user != null) {
-            fetch(`/users/${user.id}/${show}s/${id}`)
+            fetch(`https://fit-spot.herokuapp.com/users/${user.id}/${show}s/${id}`)
             .then(res => res.json())
             .then(info => {
                 console.log("data", info);
@@ -23,7 +23,7 @@ function Viewer({ user }) {
     }, [])
 
     const deleteItem = item => {
-        fetch(`/${show}s/${item.id}`, {
+        fetch(`https://fit-spot.herokuapp.com/${show}s/${item.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

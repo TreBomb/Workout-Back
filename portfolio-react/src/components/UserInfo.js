@@ -27,7 +27,7 @@ function UserInfo({ user, setUser, isLoggedin, setIsLoggedin }) {
 
     const logoutFunction = e => {
         e.preventDefault();
-        fetch(`/logout`, {
+        fetch(`https://fit-spot.herokuapp.com/logout`, {
             method: 'DELETE',
             credentials: 'include'
           })
