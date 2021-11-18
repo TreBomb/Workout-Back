@@ -36,7 +36,7 @@ function Signup({ setUser, setIsLoggedin }) {
     })
     .catch(error => {
       console.log('error', error);
-      alert('Please check that all of your info is correct and your passwords match');
+      alert('Please check that your passwords match and are at least 8 characters with 1 number');
     });
   }
 
@@ -47,7 +47,7 @@ function Signup({ setUser, setIsLoggedin }) {
             <form className="login-form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="First Name" className="input input-text" onChange={e => setInfo({...info, name: e.target.value})} />
                 <input type="email" placeholder="Email" className="input input-text" onChange={e => setInfo({...info, email: e.target.value})} />
-                <input type="password" placeholder="Password" className="input input-text" onChange={e => setInfo({...info, password: e.target.value})} oninvalid="this.setCustomValidity('Password must be at least 8 characters and have 1 number')" oninput="this.setCustomValidity('')" />
+                <input type="password" placeholder="Password" className="input input-text" onChange={e => setInfo({...info, password: e.target.value})} />
                 <input type="password" placeholder="Confirm Password" className="input input-text" onChange={e => setInfo({...info, password_confirmation: e.target.value})} />
                 <button className="btn btn-secondary">Sign Up</button>
             </form>
