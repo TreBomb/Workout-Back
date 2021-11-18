@@ -1,12 +1,26 @@
 class WeeklyRoutinesController < ApplicationController
     def index
-        @weekly_routines = WeeklyRoutine.all
+        if params[:user_id]
+            # @weekly_routines = WeeklyRoutine.where(user_id: params[:user_id])
+            @weekly_routines = User.find_by(id: params[:user_id]).weekly_routines
+        else
+            @weekly_routines = WeeklyRoutine.all
+        end
 
         render json: @weekly_routines
     end
 
     def show
-        @weekly_routine = WeeklyRoutine.find(params[:id])
+        if params[:user_id]
+            @user_routines = User.find_by(id: params[:user_id]).weekly_routines
+            @routine = @user_routines.find_by(id: params[:id])
+            @weekly_routine = {
+                routine: @routine,
+                workouts: [@routine.workout1, @routine.workout2, @routine.workout3, @routine.workout4, @routine.workout5]
+            }
+        else
+            @weekly_routine = WeeklyRoutine.find(params[:id])
+        end
 
         if @weekly_routine
             render json: @weekly_routine

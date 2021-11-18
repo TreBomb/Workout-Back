@@ -28,21 +28,21 @@ function SetGoal({ user, setUser }) {
             <div className="goal-grid-wrapper">
                 <div className="card" onClick={e => selectGoal("cut")}>
                     <h1 className="txt card-header">Cut</h1>
-                    <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="cut" />
+                    {/* <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="cut" /> */}
                     <p className="txt card-info">Minimal rest time, high reps, and low intensity. This is the best goal for weight loss or toning your muscle.</p>
                 </div>
                 <div className="card" onClick={e => selectGoal("maintain")}>
                     <h1 className="txt card-header">Maintain</h1>
-                    <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="maintain" />
+                    {/* <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="maintain" /> */}
                     <p className="txt card-info">A balance of reps and intensity. Aimed for keeping your current build.</p>
                 </div>
                 <div className="card" onClick={e => selectGoal("bulk")}>
                     <h1 className="txt card-header">Bulk</h1>
-                    <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="bulk" />
+                    {/* <img className="card-img" src="https://i.imgur.com/XQQZY8f.png" alt="bulk" /> */}
                     <p className="txt card-info">High intensity, low reps, and rest in between sets. Ideal for increasing muscle mass and strength. </p>
                 </div>
             </div>
-            <h1 className="txt txt-note">
+            <h1 className="txt txt-info-note">
                     Please note: these plans are exclusively exercises.
                     Your diet will play a major role in how quickly you achieve your goal and how closely you can match your desired outcome.
                     The results may vary from user to user.

@@ -7,16 +7,16 @@ function Viewer({ user }) {
     const propData = location.state;
     const show = propData["show"];
     const id = propData["id"];
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
     const [days, setDays] = useState([]);
 
     useEffect(() => {
         if (show != null && id != null && user != null) {
             fetch(`/users/${user.id}/${show}s/${id}`)
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setData(data);
+            .then(info => {
+                console.log("data", info);
+                setData(info);
             })
             .catch(err => console.log(err));
         }
@@ -37,35 +37,21 @@ function Viewer({ user }) {
         .catch(err => console.log(err));
     }
 
-    console.log("show:", show, "id:", id);
-    if (data["workout1_id"]) {
-        setDays({
-            Monday: data["workout1_id"], 
-            Tuesday: data["workout2_id"],
-            Wednesday: data["workout3_id"],
-            Thursday: data["workout4_id"],
-            Friday: data["workout5_id"]
-        });
-
-        // for (let i = 1; i < 5; i++) {
-        //     fetch(`/workouts/${data[`workout${i}_id`]}`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         setWorkouts({...workouts, [i]: data.name});
-        //     });
-        // };
-
+    if (data["workouts"]) {
+        console.log("updated days:", data);
+        console.log("workouts:", data.workouts)
 
         return (
             <div className="home-content">
                 <div className="cover">
-                    <h1 className="txt txt-cover">{data.name}</h1>
-                    {Object.keys(days).map(day => {
+                    <h1 className="txt txt-cover">{data.routine.name}</h1>
+                    {data.workouts.map((day, index) => {
+                        const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+                        console.log("obj days:", day)
                         return (
-                            <div className="view-info-div">
-                                <p className="txt txt-info-list">{day}:</p>
-                                <p className="txt txt-info-list">{days[day]}</p>
+                            <div className="view-info-div" key={day.name}>
+                                <p className="txt txt-info-list">{week[index]}:</p>
+                                <p className="txt txt-info-list">{day.name}</p>
                                 <hr />
                             </div>
                         );
@@ -82,7 +68,7 @@ function Viewer({ user }) {
                 <h1 className="txt txt-cover">{data.name}</h1>
                 {data.exercises.map((exercise, index) => {
                     return (
-                        <div className="view-info-div">
+                        <div className="view-info-div" key={index}>
                             <p className="txt txt-info-list">Exercise {index + 1}:</p>
                             <p className="txt txt-info-list">{exercise.name}</p>
                             <hr />
