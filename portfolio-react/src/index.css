@@ -138,6 +138,11 @@ hr {
   text-transform: capitalize;
 }
 
+.txt-exercise-guide {
+  font-size: 1.5em;
+  color: #2b2b2b;
+}
+
 .txt-card-title {
   font-size: 1.2em;
   color: #ebe4de;

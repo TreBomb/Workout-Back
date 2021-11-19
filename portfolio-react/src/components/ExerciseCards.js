@@ -79,6 +79,7 @@ function ExerciseCards({ split, user, workoutName }) {
 
     return (
         <div className="exercises-div">
+            <h3 className="txt txt-exercise-guide">Select 5 exercises from the list below to create your workout.</h3>
             <div className="filters">
                 <div className="filter-div">
                     <h3 className="txt txt-filters">Filter by muscle group</h3>
