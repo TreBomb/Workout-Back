@@ -57,7 +57,7 @@ function Viewer({ user }) {
                         );
                     })}
                 <div className="spacer" />
-                <button className="btn btn-primary" onClick={e => deleteItem(data)}>Delete Workout</button>
+                <button className="btn btn-primary" onClick={e => deleteItem(data.routine)}>Delete Workout</button>
                 </div>
             </div>
         );
