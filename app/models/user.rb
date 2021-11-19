@@ -7,6 +7,6 @@ class User < ApplicationRecord
     /x
 
     validates :email, uniqueness: true
-    validates :password, format: PASSWORD_REQUIREMENTS
+    validates :password, format: PASSWORD_REQUIREMENTS, on: :create
     has_many :weekly_routines
 end
