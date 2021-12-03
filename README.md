@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the Fit Spot app!
+The site is hosted at https://fit-spot.herokuapp.com/
 
-Things you may want to cover:
+This application was made to help those in need of new workout routines.
+It allows for users to create custom workout plans based on their goals, helping them to achieve their desired outcome.
 
-* Ruby version
+After you create an account, you can make a workout consisting of 5 exercises.
+Once you have 5 workouts in your account, you can create a weekly routine consisting of 5 exercises matched to days of the week.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy your gains!
