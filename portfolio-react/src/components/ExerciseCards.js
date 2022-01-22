@@ -19,6 +19,7 @@ function ExerciseCards({ split, user, workoutName }) {
               };
           
               fetch('https://fit-spot.herokuapp.com/exercise-filter', requestOptions)
+              //test
               .then(response => response.json())
               .then(data => {
                 console.log(data);
