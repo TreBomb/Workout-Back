@@ -19,7 +19,6 @@ function ExerciseCards({ split, user, workoutName }) {
               };
           
               fetch('https://fit-spot.herokuapp.com/exercise-filter', requestOptions)
-              //test
               .then(response => response.json())
               .then(data => {
                 console.log(data);
@@ -83,10 +82,17 @@ function ExerciseCards({ split, user, workoutName }) {
             <h3 className="txt txt-exercise-guide">Select 5 exercises from the list below to create your workout.</h3>
             <div className="filters">
                 <div className="filter-div">
-                    <h3 className="txt txt-filters">Filter by muscle group</h3>
+                    <h3 className="txt txt-filters">Filter</h3>
                     <h3 className="txt txt-filters">Search</h3>
                 </div>
                 <div className="search-div">
+                <select className="filter-select" onChange={(e) => setTarget(e.target.value)}>
+                        {split.map(item => {
+                            return (
+                                <option value={item}>{item}</option>
+                            );
+                        })}
+                    </select>
                     <input
                         className="search-input"
                         type="text"
@@ -94,13 +100,6 @@ function ExerciseCards({ split, user, workoutName }) {
                         placeholder="Name, Equipment, or Muscle..."
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <select className="filter-select" onChange={(e) => setTarget(e.target.value)}>
-                        {split.map(item => {
-                            return (
-                                <option value={item}>{item}</option>
-                            );
-                        })}
-                    </select>
                 </div>
             </div>
             <hr />
