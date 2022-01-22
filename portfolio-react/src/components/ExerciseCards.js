@@ -83,16 +83,9 @@ function ExerciseCards({ split, user, workoutName }) {
             <div className="filters">
                 <div className="filter-div">
                     <h3 className="txt txt-filters">Filter by muscle group</h3>
-                    <select className="filter-select" onChange={(e) => setTarget(e.target.value)}>
-                        {split.map(item => {
-                            return (
-                                <option value={item}>{item}</option>
-                            );
-                        })}
-                    </select>
+                    <h3 className="txt txt-filters">Search</h3>
                 </div>
                 <div className="search-div">
-                    <h3 className="txt txt-filters">Search</h3>
                     <input
                         className="search-input"
                         type="text"
@@ -100,6 +93,13 @@ function ExerciseCards({ split, user, workoutName }) {
                         placeholder="Name, Equipment, or Muscle..."
                         onChange={(e) => setSearch(e.target.value)}
                     />
+                    <select className="filter-select" onChange={(e) => setTarget(e.target.value)}>
+                        {split.map(item => {
+                            return (
+                                <option value={item}>{item}</option>
+                            );
+                        })}
+                    </select>
                 </div>
             </div>
             <hr />

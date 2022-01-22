@@ -15,7 +15,7 @@ function Footer() {
                 <div className="footer-right">
                     <p className="txt txt-footer">A Project by Trestin Ishak</p>
                     <p className="txt txt-footer">|</p>
-                    <p className="txt txt-footer">Check out my <a href="" className="link-dark">Portfolio!</a></p>
+                    <p className="txt txt-footer">Check out my <a href="https://www.trest.in/" className="link-dark">Portfolio!</a></p>
                 </div>
             </div>
         </nav>
