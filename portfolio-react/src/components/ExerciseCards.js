@@ -18,12 +18,12 @@ function ExerciseCards({ split, user, workoutName }) {
                 body: JSON.stringify({filter: search, target: target})
               };
           
-              fetch('https://fit-spot.herokuapp.com/exercise-filter', requestOptions)
-              .then(response => response.json())
-              .then(data => {
-                console.log(data);
-                setExercises(data);
-              });
+            //   fetch('https://fit-spot.herokuapp.com/exercise-filter', requestOptions)
+            //   .then(response => response.json())
+            //   .then(data => {
+            //     console.log(data);
+            //     setExercises(data);
+            //   });
         }
         if (search === "") {
             setSearch("all");
@@ -42,12 +42,12 @@ function ExerciseCards({ split, user, workoutName }) {
                 })
               };
           
-            fetch('https://fit-spot.herokuapp.com/workout_exercises', requestOptions)
-            .then(response => response.json())
-            .then(data => {
-            console.log(data);
-            // history.push("/set-goal");
-            });
+            // fetch('https://fit-spot.herokuapp.com/workout_exercises', requestOptions)
+            // .then(response => response.json())
+            // .then(data => {
+            // console.log(data);
+            // // history.push("/set-goal");
+            // });
         });
     }, [newWorkout])
 
@@ -62,13 +62,13 @@ function ExerciseCards({ split, user, workoutName }) {
             })
           };
       
-        fetch('https://fit-spot.herokuapp.com/workouts', requestOptions)
-        .then(response => response.json())
-        .then(data => {
-        console.log(data);
-        setNewWorkout(data.id);
-        history.push("/dashboard");
-        });
+        // fetch('https://fit-spot.herokuapp.com/workouts', requestOptions)
+        // .then(response => response.json())
+        // .then(data => {
+        // console.log(data);
+        // setNewWorkout(data.id);
+        // history.push("/dashboard");
+        // });
     }
     }, [workoutList])
 
