@@ -4,8 +4,11 @@ Welcome to the Fit Spot app!
 The site is hosted at https://fit-spot.herokuapp.com/
 
 Use the Test Account Login (Or make your own!):
-Email: test1@test.com
-Password: test123
+<br />
+Email: viewer1@test.com
+<br />
+Password: Viewer1234
+<br />
 
 This application was made to help those in need of new workout routines.
 It allows for users to create custom workout plans based on their goals, helping them to achieve their desired outcome.
