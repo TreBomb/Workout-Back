@@ -9,6 +9,7 @@ Email: viewer1@test.com
 <br />
 Password: Viewer1234
 <br />
+IF YOU ARE USING THE TEST ACCOUNT, PLEASE DELETE YOUR ADDITIONS BEFORE LEAVING THE SITE AND LEAVE THE BASIC ITEMS UNTOUCHED FOR OTHERS
 
 This application was made to help those in need of new workout routines.
 It allows for users to create custom workout plans based on their goals, helping them to achieve their desired outcome.
